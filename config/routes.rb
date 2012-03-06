@@ -1,4 +1,14 @@
 ActiveadminCancanRoles::Application.routes.draw do
+  get "home/index"
+
+  ActiveAdmin.routes(self)
+
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  root :to => 'Home#index'
+
+
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
