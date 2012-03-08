@@ -8,13 +8,14 @@ class Ability
 		case user.role
 			when "admin"
 				can :manage, :all
-			when "moderator"
-				can :read, :all
+			#when "moderator"
+			#	can :read, :all
+			#	can :manage, Notice
 			when "author"
-				can :read, :all
-				# can :manage, Document
-				# can :read, Category			
-				#cannot [:destroy, :edit]
+				can :manage, Notice, :user_admin_id => user.id
+				can :read, Category
+				#cannot [:destroy]
+				#can :manage, Document
 			end
 		# Define abilities for the passed in user here. For example:
 		#
